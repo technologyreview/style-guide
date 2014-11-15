@@ -1,0 +1,56 @@
+/*------------------------------------------------------------------------------
+  Branding
+------------------------------------------------------------------------------*/
+
+@gray: #565759; // current nav state bg
+@dark-gray: #212121; // footer box bg's
+@black: #000;
+@yellow: #f5c861; // popular links
+@gray-txt: #b8b8b8; // toolbar text
+@light-gray-txt: #B3BABB; // sidebar timestamps
+@red: #c90a37;
+
+
+/*------------------------------------------------------------------------------
+  Mixins
+------------------------------------------------------------------------------*/
+
+.transition( @args ) {
+	-webkit-transition: @args;
+	-moz-transition: @args;
+	-ms-transition: @args;
+	-o-transition: @args;
+	transition: @args;
+}
+.box-shadow( @args ) {
+	-webkit-box-shadow: @args;
+	-moz-box-shadow: @args;
+	box-shadow: @args;
+}
+.border-radius( @radius ) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+.transition( @props ) {
+	-webkit-transition: @props;
+    -moz-transition: @props;
+    -o-transition: @props;
+    transition: @props;
+}
+.transform( @props ) {
+	-webkit-transform: @props;
+	-moz-transform: @props;
+	-ms-transform: @props;
+	-o-transform: @props;
+}
+.clearfix() {
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+}

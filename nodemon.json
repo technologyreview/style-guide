@@ -1,0 +1,9 @@
+{
+	"verbose": true,
+	"script": "app.js",
+	"ext": "js css html",
+	"env": {
+		"NODE_ENV": "development"
+	},
+	"nodeArgs": ["--debug"]
+}
