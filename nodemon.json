@@ -1,9 +1,10 @@
 {
 	"verbose": true,
 	"script": "app.js",
-	"ext": "js css html",
+	"ext": "js twig html",
 	"env": {
 		"NODE_ENV": "development"
 	},
+	"ignore": ["./public/**"],
 	"nodeArgs": ["--debug"]
-}
+	}

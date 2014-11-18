@@ -1,0 +1,8 @@
+<aside class="menu">
+	<a data-toggle="menu"><i class="ion-navicon-round"></i></a>
+	<ul>
+		{% for item in globals.menu %}
+		<li><a href="{{ item.uri }}">{{ item.label }}</a></li>
+		{% endfor %}
+	</ul>
+</aside>

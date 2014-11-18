@@ -1,8 +1,17 @@
+"use strict";
+
 var gulp = require('gulp'),
-	nodemon = require('gulp-nodemon'),
 	less = require('gulp-less'),
+	path = require('path'),
+	nodemon = require('gulp-nodemon'),
 	jshint = require('gulp-jshint'),
-	path = require('path');
+	livereload = require('gulp-livereload');
+
+// JS Lint
+gulp.task('jshint', function () {
+	gulp.src('*.js')
+		.pipe(jshint())
+});
 
 // LESS compile
 gulp.task('less', function () {
@@ -12,25 +21,26 @@ gulp.task('less', function () {
 			lint: true,
 			compress: true
 		}))
-		.pipe(gulp.dest('./public/css'));
+		.pipe(gulp.dest('./public/css'))
+		.pipe(livereload());
 });
 
-// JS Lint
-gulp.task('lint', function () {
-	gulp.src('./**/*.js')
-		.pipe(jshint())
+// watch for changes
+gulp.task('watch', function () {
+	gulp.watch('./public/less/*.less', ['less']);
 });
 
-// Nodemon: automatically reload env when files change
-gulp.task('develop', function () {
+// nodemon: automatically reload env when files change
+gulp.task('nodemon', function () {
 	nodemon({
 		script: 'app.js',
-		ext: 'html js css'
+		ext: 'js twig'
 	})
-		.on('change', ['lint'])
+		.on('change', ['jshint'])
 		.on('restart', function () {
-			console.log('Restarted!')
-		})
+			console.log('restart');
+		});
 });
 
-gulp.task('default', ['less', 'lint', 'develop']);
+// runtime
+gulp.task('default', ['jshint', 'nodemon', 'watch']);

@@ -10,5 +10,8 @@ Guidelines to help you align a microsite, partner website, or other affiliate co
 1. Open the browser to `http://localhost:9999`
 
 ## Development notes
-* Gulp is used to automate build and compile processes
-* Node.js is configured with Nodemon for build-on-save and Express for MVC routing
+* [Gulp](http://gulpjs.com/) is used to automate build and compile processes
+* **Node.js** is used for generating a micro HTTP server that serves routes and server-side JavaScript
+* [Express](http://expressjs.com/) is a Node web app framework used for MVC routing
+* [Nodemon](http://nodemon.io/) will monitor for any changes in your node.js application and automatically restart the server
+* [BrowserSync](http://www.browsersync.io/docs/gulp/)

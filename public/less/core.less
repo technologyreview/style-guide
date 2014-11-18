@@ -1,57 +1,167 @@
 /**
- * Core Styles
+ * MIT Technology Review Style Guide
  *
  * Shared throughout all views
  */
 
+/*------------------------------------------------------------------------------
+  Framework
+------------------------------------------------------------------------------*/
+
+// library
 @import url('fonts.less');
 @import url('library.less');
 @import url('normalize.less');
+@import url('//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css');
+
+// vars
+@menu-width: 200px;
+@toolbar-height: 138px;
 
 /*------------------------------------------------------------------------------
-  Structure / layout
+  Global
 ------------------------------------------------------------------------------*/
 
+html, body {
+	min-height: 100%;
+}
 body {
-	font-size: 24px;
+	height: 100%;
+	font-family: @font-body;
+	font-size: 14px;
+	line-height: 1.42em;
 }
 .container {
 	max-width: 1040px;
-	padding: 0 20px;
+	padding-left: 20px;
+	padding-right: 20px;
 	margin: 0 auto;
+	.clearfix();
 }
-
-// header
-.toolbar {
-	padding: 20px 40px;
-	background: @black;
-}
-.brand {
-	width: 201px;
-	height: 98px;
-	display: block;
-	background: url('/img/mittr-logo.png') 0 0 no-repeat;
-}
-
-// content
-
-
-// footer
-.footer {
-	
-	.copyright {
-		text-align: center;
-		font-size: 12px;
-		margin: 20px 0 0;
+a {
+	color: @blue;
+	&:hover {
+		color: @orange;
 	}
 }
 
 /*------------------------------------------------------------------------------
-  Typography
+  Header
 ------------------------------------------------------------------------------*/
 
+.toolbar {
+	padding: 20px 40px;
+	background: @black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	.current a,
+	a:hover {
+		
+	}
+}
+.brand {
+	width: 101px;
+	height: 49px;
+	display: block;
+	text-indent: -2005em;
+	background: url('/img/mittr-logo.png') 0 0 no-repeat;
+	float: left;
+}
 
+// menu
+.menu {
+	float: right;
+	text-align: right;
+	position: relative;
+	[data-toggle="menu"] {
+		display: inline-block;
+		padding: 5px 10px;
+		border: 1px solid @gray-border;
+		.border-radius( 1px );
+		position: relative;
+		z-index: 2;
+		i {
+			color: white;
+			font-size: 28px;
+			line-height: 100%;
+		}
+		&.active {
+
+		}
+	}
+	ul {
+		position: absolute;
+		right: -20px;
+		padding: 40px 15px 15px 40px;
+		background: black;
+		margin: -5px 0 0;
+		.border-radius( 0 0 2px 2px );
+		li {
+			display: block;
+		}
+		a {
+			display: inline-block;
+			padding: 3px 5px;
+		}
+	}
+}
+
+// state: nav closed
+body.nav-closed .menu > ul {
+	-webkit-backface-visibility: hidden;
+	transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+}
+
+// state: nav open
+body.nav-open .menu > ul {
+	transform: translateY(240px);
+	-webkit-transform: translateY(240px);
+}
 
 /*------------------------------------------------------------------------------
-  Logo / branding
+  Content area
 ------------------------------------------------------------------------------*/
+
+// main
+.main {
+	padding-top: @toolbar-height;
+	display: block;
+}
+
+// content regions
+.region {
+	padding: 40px 0;
+	.header-section {
+		font-weight: 900;
+		font-size: 28px;
+		line-height: 1.2em;
+	}
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/*------------------------------------------------------------------------------
+  Footer
+------------------------------------------------------------------------------*/
+
+.site-footer {
+	background: @light-gray-bg;
+	padding: 10px 0;
+	.copyright {
+		text-align: center;
+		font-size: 12px;
+		margin: 0;
+	}
+}
