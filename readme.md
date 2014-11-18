@@ -14,4 +14,4 @@ Guidelines to help you align a microsite, partner website, or other affiliate co
 * **Node.js** is used for generating a micro HTTP server that serves routes and server-side JavaScript
 * [Express](http://expressjs.com/) is a Node web app framework used for MVC routing
 * [Nodemon](http://nodemon.io/) will monitor for any changes in your node.js application and automatically restart the server
-* [BrowserSync](http://www.browsersync.io/docs/gulp/)
+* LiveReload
