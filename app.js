@@ -12,11 +12,19 @@ app.use(require('connect-livereload')({
 
 // views
 app.disable('view cache');
-Twig.cache = false;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'twig');
 app.set('twig options', {
 	strict_variables: false
+});
+
+// twig config
+Twig.cache = false;
+Twig.extendFilter("markdown", function (value) {
+
+	// covert markdown to HTML
+	var marked = require('marked');
+	return marked(value);
 });
 
 // static files
@@ -26,38 +34,50 @@ app.use(favicon(__dirname + '/public/img/favicon.ico'));
 // data: navigation
 var globals = {
 	menu: [{
-		label: 'General',
+		label: 'Elements',
 		uri: '/'
 	}, {
-		label: 'Editorial',
-		uri: '/editorial'
+		label: 'Components',
+		uri: '/components'
 	}, {
-		label: 'Events',
-		uri: '/events'
+		label: 'Patterns',
+		uri: '/patterns'
 	}, {
-		label: 'Support',
-		uri: '/support'
+		label: 'Resources',
+		uri: '/resources'
 	}],
-	bodyClass: '',
-	uuid: randomstring.generate(12)
+	bodyClass: 'nav-closed',
+	uuid: randomstring.generate(12),
+	organization: "MIT Technology Review"
 };
 
-// route: index
+/**
+ * Route: Index
+ *
+ * Initial root page routing handler
+ */
 app.get('/', function (req, res) {
 	res.render('layout', {
-		view: 'general.twig',
+		view: 'index.twig',
 		globals: globals
 	});
 });
 
-// route: page
+/**
+ * Route: Pages
+ *
+ * Wildcard handler for all site pages, where the
+ * URL path corresponds to a view template.
+ */
 app.get('/*', function (req, res) {
-	var viewTemplate = (req.route) ? req.url.substring(1) : 'general';
-	console.log('viewTemplate', viewTemplate);
+	var viewTemplate = (req.route) ? req.url.substring(1) : 'index';
 	res.render('layout', {
 		view: viewTemplate + '.twig',
 		globals: globals
 	});
 });
 
+/**
+ * Virtual Host
+ */
 app.listen(9999);

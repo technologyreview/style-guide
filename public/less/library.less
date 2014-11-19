@@ -10,6 +10,7 @@
 @gray-border: #4d4d4d; // from nav link borders
 @light-gray-txt: #B3BABB; // sidebar timestamps
 @light-gray-bg: #f0f0f0; // ad backgrounds
+@dark-gray-txt: #77787B; // used for topic headlines on editorial
 @red: #c90a37;
 @blue: #206f96;
 @orange: #d7182a;
@@ -36,17 +37,12 @@
 	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
 }
-.transition( @props ) {
-	-webkit-transition: @props;
-    -moz-transition: @props;
-    -o-transition: @props;
-    transition: @props;
-}
 .transform( @props ) {
 	-webkit-transform: @props;
 	-moz-transform: @props;
 	-ms-transform: @props;
 	-o-transform: @props;
+	-webkit-backface-visibility: hidden;
 }
 .clearfix() {
 	&:after {

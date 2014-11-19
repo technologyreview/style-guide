@@ -1,6 +1,9 @@
 # MIT Technology Review Web Style Guide
 Guidelines to help you align a microsite, partner website, or other affiliate content served to an audience under the MIT brand.
 
+## Content
+Content templates are located under `/public/views/`, the **Elements** template uses `/public/views/index.twig`.
+
 ## Installation (Mac)
 1. Clone the repo to your machine
 1. Install Home Brew: `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` then `brew doctor`

@@ -16,24 +16,32 @@
 <header class="toolbar">
 	<div class="container">
 		<a href="/" class="brand">MIT Technology Review</a>
-		{% include '_menu.twig' %}
+		{% include '_menu-toolbar.twig' %}
 	</div>
 </header>
 
 <section class="main">
-	<div class="region container">
-		{% include view %}
+	<div class="container region">
+		<aside class="secondary" data-hash="#view-template" data-offset-top="139" data-sticky></aside>
+
+		<main id="view-template" class="primary markdown">
+{% filter markdown %}
+{% include view %}
+{% endfilter %}
+		</main>
 	</div>
 </section>
 
 <footer class="site-footer">
 	<div class="container">
-		<p class="copyright">&copy; 2014</p>
+		<p class="copyright">&copy; 2014 &nbsp;&nbsp;&nbsp;&nbsp; MIT Technology Review</p>
 	</div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+<script src="/js/twig.min.js"></script>
 <script src="/js/core.js?v={{ globals.uuid }}"></script>
+
 </body>
 </html>

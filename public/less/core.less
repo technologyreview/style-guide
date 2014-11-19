@@ -10,33 +10,36 @@
 
 // library
 @import url('fonts.less');
+@import url('//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css');
 @import url('library.less');
 @import url('normalize.less');
-@import url('//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css');
+@import url('code.less');
+@import url('grid.less');
 
 // vars
 @menu-width: 200px;
-@toolbar-height: 138px;
+@toolbar-height: 89px;
+@nav-slide-height: 215px;
+
+// views
+@import url('editorial.less');
 
 /*------------------------------------------------------------------------------
   Global
 ------------------------------------------------------------------------------*/
 
+html {
+	font-size: 62.5%;
+}
 html, body {
 	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
 }
 body {
 	height: 100%;
 	font-family: @font-body;
-	font-size: 14px;
-	line-height: 1.42em;
-}
-.container {
-	max-width: 1040px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin: 0 auto;
-	.clearfix();
+	font-size: 1.4rem;
+	line-height: 2rem;
 }
 a {
 	color: @blue;
@@ -86,23 +89,30 @@ a {
 		border: 1px solid @gray-border;
 		.border-radius( 1px );
 		position: relative;
+		cursor: pointer;
 		z-index: 2;
 		i {
 			color: white;
-			font-size: 28px;
+			font-size: 2.8rem;
 			line-height: 100%;
 		}
 		&.active {
 
 		}
+		span {
+			display: block;
+			height: 89px;
+		}
 	}
 	ul {
 		position: absolute;
 		right: -20px;
-		padding: 40px 15px 15px 40px;
+		padding: 15px 15px 15px 40px;
 		background: black;
-		margin: -5px 0 0;
+		margin: 69px 0 0 0;
 		.border-radius( 0 0 2px 2px );
+		.transform( translateY(0px) );
+		.transition( transform 350ms ease-out );
 		li {
 			display: block;
 		}
@@ -111,19 +121,21 @@ a {
 			padding: 3px 5px;
 		}
 	}
+	.menu-zone {
+		position: absolute;
+		top: -20px;
+		right: -20px;
+		padding: 24px 20px 24px 0;
+		width: 97px;
+		background: black;
+		z-index: 2;
+	}
 }
 
 // state: nav closed
 body.nav-closed .menu > ul {
-	-webkit-backface-visibility: hidden;
-	transform: translateX(0px);
-	-webkit-transform: translateX(0px);
-}
-
-// state: nav open
-body.nav-open .menu > ul {
-	transform: translateY(240px);
-	-webkit-transform: translateY(240px);
+	.transition( transform 500ms ease-in );
+	.transform( translateY( -@nav-slide-height ) );
 }
 
 /*------------------------------------------------------------------------------
@@ -135,13 +147,66 @@ body.nav-open .menu > ul {
 	padding-top: @toolbar-height;
 	display: block;
 }
+main.primary {
+	.column(8);
+	float: right;
+}
+.markdown {
+	img {
+		display: block;
+		max-width: 100%;
+		box-sizing: border-box;
+		.border-radius( 3px );
+		padding: 10px;
+		background: white;
+		border: 2px solid @light-gray-bg;
+	}
+	p {
+		margin: 0 0 30px;
+	}
+	h2 {
+
+	}
+}
+
+// sidebar
+aside.secondary {
+	.column(3);
+	position: fixed;
+	top: 139px;
+	left: 50%;
+	.border-radius( 1px );
+	padding: 15px 30px 100px 0;
+	border-right: 1px solid @light-gray-bg;
+	margin: 0 10px 0 -570px;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	a {
+		text-decoration: none;
+		font-family: @font-nav;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 14px;
+	}
+	li + li {
+		margin-top: 15px;
+	}
+}
+
+// sticky
+[data-sticky] {
+	right: 0;
+}
 
 // content regions
 .region {
-	padding: 40px 0;
+	padding: 50px 0;
 	.header-section {
 		font-weight: 900;
-		font-size: 28px;
+		font-size: 2.8rem;
 		line-height: 1.2em;
 	}
 	> *:first-child {
@@ -153,15 +218,44 @@ body.nav-open .menu > ul {
 }
 
 /*------------------------------------------------------------------------------
+  Typography
+------------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.3em;
+}
+h1 {
+	font-size: 48px;
+	font-weight: bold;
+	margin: 0 0 40px;
+}
+h2 {
+	margin: 50px 0 15px;
+}
+h3 {
+	font-family: @font-nav;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 12px;
+	margin: 25px 0 10px;
+	color: @dark-gray-txt;
+}
+h1 + h2 {
+	margin-top: 0;
+}
+
+/*------------------------------------------------------------------------------
   Footer
 ------------------------------------------------------------------------------*/
 
 .site-footer {
-	background: @light-gray-bg;
-	padding: 10px 0;
+	background: @red;
+	color: white;
+	padding: 20px 0;
+	font-weight: bold;
 	.copyright {
 		text-align: center;
-		font-size: 12px;
+		font-size: 1.2rem;
 		margin: 0;
 	}
 }

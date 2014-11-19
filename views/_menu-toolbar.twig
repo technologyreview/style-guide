@@ -1,5 +1,9 @@
 <aside class="menu">
-	<a data-toggle="menu"><i class="ion-navicon-round"></i></a>
+	<div class="menu-zone">
+		<a data-toggle="menu">
+			<i class="ion-navicon-round"></i>
+		</a>
+	</div>
 	<ul>
 		{% for item in globals.menu %}
 		<li><a href="{{ item.uri }}">{{ item.label }}</a></li>
