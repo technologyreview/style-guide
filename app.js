@@ -18,11 +18,11 @@ if ('development' == app.get('env')) {
 	app.use(require('connect-livereload')({
 		port: 35729
 	}));
-
-	// disable cache
-	app.disable('view cache');
-	Twig.cache = false;
 }
+
+// disable cache
+app.disable('view cache');
+Twig.cache = false;
 
 // views
 app.set('views', __dirname + '/views');
