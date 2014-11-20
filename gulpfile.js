@@ -34,7 +34,10 @@ gulp.task('watch', function () {
 gulp.task('nodemon', function () {
 	nodemon({
 		script: 'app.js',
-		ext: 'js twig'
+		ext: 'js twig',
+		env: {
+			'NODE_ENV': 'development'
+		}
 	})
 		.on('change', ['jshint'])
 		.on('restart', function () {
