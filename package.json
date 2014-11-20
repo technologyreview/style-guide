@@ -1,6 +1,9 @@
 {
 	"name": "mittr-style-guide",
 	"version": "1.0.0",
+	"engines": {
+		"node": "0.10.x"
+	},
 	"description": "Guidelines to help you align a microsite, partner website, or other affiliate content served to an audience under the MIT brand.",
 	"main": "gulpfile.js",
 	"dependencies": {
@@ -36,6 +39,5 @@
 	"bugs": {
 		"url": "https://github.com/technologyreview/style-guide/issues"
 	},
-	"homepage": "https://github.com/technologyreview/style-guide",
-	"engine": "node 0.10.33"
+	"homepage": "https://github.com/technologyreview/style-guide"
 }
