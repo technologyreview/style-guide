@@ -130,4 +130,6 @@ app.use(function (error, req, res, next) {
 /**
  * Virtual Host
  */
-app.listen(port);
+app.listen(port, function () {
+	console.log("%s listening at %s ", server.name, server.url);
+});
