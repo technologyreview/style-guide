@@ -15,13 +15,21 @@ Content templates are located under `/public/views/`, the **Elements** template 
 1. Open the browser to `http://localhost:9999`
 
 ## Deployment
-The production version of this style guide is hosted at [Heroku]() and can be configured for easy CLI deployment with *Terminal*:
+The production version of this style guide is hosted at [Heroku]() and has two environments that can be deployed to using Git, `staging` and `production`.
+
+* **Development:** [localhost:9999](http://localhost:9999) - Served locally by Gulp + Nodemon
+* **Staging:** [mittr-styleguide-staging.herokuapp.com](https://mittr-styleguide-staging.herokuapp.com/)
+* **Production:** [mittr-styleguide.herokuapp.com](https://mittr-styleguide.herokuapp.com/)
+
+To configure easy command-line deployment:
 
 1. `cd` to the repo directory on your machine: `~/Sites/style-guide`
 1. Download and install the [Heroku Toolbelt](https://toolbelt.heroku.com/)
 1. Login to Heroku: `heroku login` with email `Infrastructure@TechnologyReview.com` and password `techRev1w0293057*`
-1. Add a `heroku` remote to your Git repo: `heroku git:remote -a mittr-styleguide`
-1. Commit your changes, or merge them from another banch into master, and deploy them to Heroku production: `git push heroku master`
+1. Add the `staging` remote to Git for deploying changes to the staging Heroku environment: `git remote add staging git@heroku.com:mittr-styleguide-staging.git`
+1. Commit your changes, or merge them from another banch into master, and deploy them to Heroku staging: `git push staging master`
+1. Add the `production` remote to Git for deploying changes to the production Heroku environment: `git remote add production git@heroku.com:mittr-styleguide.git`
+1. Commit your changes, or merge them from another banch into master, and deploy them to Heroku production: `git push production master`
 
 ## Systems
 More info on the tools and systems used.
