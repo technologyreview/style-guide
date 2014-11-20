@@ -1,3 +1,4 @@
+// dependencies
 var express = require('express'),
 	http = require('http'),
 	app = express(),
@@ -9,7 +10,8 @@ var express = require('express'),
 	fs = require('fs'),
 	marked = require('marked');
 
-// livereload
+// config
+var port = process.env.PORT || 9999;
 if ('development' == app.get('env')) {
 
 	// enable livereload
@@ -23,7 +25,6 @@ if ('development' == app.get('env')) {
 }
 
 // views
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'twig');
 app.set('twig options', {
@@ -129,4 +130,4 @@ app.use(function (error, req, res, next) {
 /**
  * Virtual Host
  */
-app.listen(9999);
+app.listen(port);
