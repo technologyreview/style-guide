@@ -69,18 +69,21 @@ app.get('/*', function (req, res) {
 	var viewPath = app.get('views');
 	var viewTemplate = (req.url === '/') ? 'index' : req.url.substring(1);
 	var templatePath = viewPath + '/' + viewTemplate + '.twig';
+	var viewTitle = (req.url === '/') ? 'elements' : req.url.substring(1);
 
 	// does the view template for this route exist? if not serve an error page
 	fs.exists(templatePath, function (exists) {
 		if (exists) {
 			res.render('layout-default', {
 				view: viewTemplate + '.twig',
-				activeRoute: req.url
+				activeRoute: req.url,
+				title: viewTitle
 			});
 		} else {
 			res.render('layout-simple', {
 				view: 'error-404.twig',
-				activeRoute: req.url
+				activeRoute: req.url,
+				title: viewTitle
 			});
 		}
 	});
