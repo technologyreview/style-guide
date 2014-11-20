@@ -10,12 +10,20 @@ var express = require('express'),
 	marked = require('marked');
 
 // livereload
-app.use(require('connect-livereload')({
-	port: 35729
-}));
+if ('development' == app.get('env')) {
+
+	// enable livereload
+	app.use(require('connect-livereload')({
+		port: 35729
+	}));
+
+	// disable cache
+	app.disable('view cache');
+	Twig.cache = false;
+}
 
 // views
-app.disable('view cache');
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'twig');
 app.set('twig options', {
@@ -23,7 +31,6 @@ app.set('twig options', {
 });
 
 // twig config
-Twig.cache = false;
 Twig.extendFilter("markdown", function (value) {
 	return marked(value);
 });
@@ -43,9 +50,6 @@ app.locals = _.extend(app.locals, {
 	}, {
 		label: 'Patterns',
 		uri: '/patterns'
-	}, {
-		label: 'Resources',
-		uri: '/resources'
 	}],
 	bodyClass: 'nav-closed',
 	uuid: randomstring.generate(12),
@@ -59,7 +63,7 @@ app.locals = _.extend(app.locals, {
  * in templates, this get's used for current nav
  * states
  */
-app.use('*', function (req, res, next) {
+app.use('/*', function (req, res, next) {
 	app.locals = _.extend(app.locals, {
 		activeRoute: req.route
 	});
