@@ -58,20 +58,6 @@ app.locals = _.extend(app.locals, {
 });
 
 /**
- * Route middleware
- *
- * Track the current route as a local variable
- * in templates, this get's used for current nav
- * states
- */
-app.use('/*', function (req, res, next) {
-	app.locals = _.extend(app.locals, {
-		activeRoute: req.route
-	});
-	next();
-});
-
-/**
  * Dynamic URL Routing
  *
  * Wildcard handler for all site pages, where the
@@ -88,11 +74,13 @@ app.get('/*', function (req, res) {
 	fs.exists(templatePath, function (exists) {
 		if (exists) {
 			res.render('layout-default', {
-				view: viewTemplate + '.twig'
+				view: viewTemplate + '.twig',
+				activeRoute: req.url
 			});
 		} else {
 			res.render('layout-simple', {
-				view: 'error-404.twig'
+				view: 'error-404.twig',
+				activeRoute: req.url
 			});
 		}
 	});

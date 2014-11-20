@@ -62,6 +62,7 @@ a {
 	left: 0;
 	right: 0;
 	z-index: 2;
+	border-bottom: 2px solid white;
 	a {
 		color: white;
 		text-decoration: none;
@@ -186,8 +187,16 @@ a {
 	display: block;
 }
 .markdown {
+	h1 + p {
+		font-weight: 300;
+		font-size: 2.4rem;
+		line-height: 3rem;
+		margin: -30px 0 25px;
+		color: @dark-gray-txt;
+	}
 	img {
-		display: block;
+		display: inline-block;
+		vertical-align: top;
 		max-width: 100%;
 		box-sizing: border-box;
 		.border-radius( 3px );
@@ -195,8 +204,44 @@ a {
 		background: white;
 		border: 2px solid @light-gray-bg;
 	}
-	p {
+	p, ul, ol {
 		margin: 0 0 30px;
+	}
+	p + ul, p + ol {
+		margin-top: -10px;
+	}
+	img + img {
+		margin-left: 20px;
+	}
+	table {
+		text-align: left;
+		width: 100%;
+		.border-radius( 3px );
+		background: white;
+		border: 2px solid @light-gray-bg;
+		th, td {
+			padding: 10px 12px;
+			vertical-align: top;
+			.border-radius( 3px );
+		}
+		thead {
+			background: lighten(@light-gray-bg, 2%);
+		}
+		th {
+			font-size: 13px;
+		}
+		td {
+			font-size: 12px;
+			padding: 5px 15px;
+		}
+		tbody {
+			> tr:first-child {
+				td { padding-top: 15px; }
+			}
+			> tr:last-child {
+				td { padding-bottom: 15px; }
+			}
+		}
 	}
 }
 
@@ -207,9 +252,6 @@ a {
 .layout-simple {
 	.markdown {
 		text-align: center;
-		h1 {
-			margin-bottom: 20px;
-		}
 		h2 {
 			font-size: 24px;
 			font-weight: normal;
@@ -242,7 +284,7 @@ a {
 		.border-radius( 1px );
 		padding: 15px 30px 100px 0;
 		border-right: 1px solid @light-gray-bg;
-		margin: 0 10px 0 -570px;
+		margin: -15px 10px 0 -570px;
 		ul {
 			list-style: none;
 			padding: 0;
@@ -292,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 48px;
 	font-weight: bold;
-	margin: 0 0 40px;
+	margin: -8px 0 40px;
 }
 h2 {
 	margin: 50px 0 15px;
@@ -353,6 +395,9 @@ pre {
 	color: white;
 	padding: 20px 0;
 	font-weight: bold;
+	border-top: 20px solid white;
+	position: relative;
+	z-index: 2;
 	.copyright {
 		text-align: center;
 		font-size: 1.2rem;

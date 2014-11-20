@@ -6,7 +6,7 @@
 	</div>
 	<ul>
 		{% for item in menu %}
-		<li><a href="{{ item.uri }}">{{ item.label }}</a></li>
+		<li{% if activeRoute == item.uri %} class="active"{% endif %}><a href="{{ item.uri }}">{{ item.label }}</a></li>
 		{% endfor %}
 	</ul>
 </aside>
