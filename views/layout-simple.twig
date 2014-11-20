@@ -9,9 +9,9 @@
 	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="/css/core.css?v={{ globals.uuid }}">
+	<link rel="stylesheet" href="/css/core.css?v={{ uuid }}">
 </head>
-<body class="{{ globals.bodyClass }}">
+<body class="{{ bodyClass }}">
 
 <header class="toolbar">
 	<div class="container">
@@ -20,10 +20,8 @@
 	</div>
 </header>
 
-<section class="main">
+<section class="main layout-simple">
 	<div class="container region">
-		<aside class="secondary" data-hash="#view-template" data-offset-top="139" data-sticky></aside>
-
 		<main id="view-template" class="primary markdown">
 {% filter markdown %}
 {% include view %}
@@ -41,7 +39,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 <script src="/js/twig.min.js"></script>
-<script src="/js/core.js?v={{ globals.uuid }}"></script>
+<script src="/js/core.js?v={{ uuid }}"></script>
 
 </body>
 </html>
