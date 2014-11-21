@@ -63,7 +63,7 @@
 			// calc transition speed and positioning
 			var dimensions = {
 				scrollHeight: $('html').height(),
-				from: $currentHash.offset().top - offset,
+				from: (location.hash) ? $currentHash.offset().top - offset : 0,
 				to: $target.offset().top - offset,
 				baseTransition: 1500,
 				init: function () {
