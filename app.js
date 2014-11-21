@@ -6,7 +6,6 @@ var express = require('express'),
 	Twig = require('twig'),
 	randomstring = require('randomstring'),
 	_ = require('underscore'),
-	semiStatic = require('semi-static'),
 	fs = require('fs'),
 	marked = require('marked');
 

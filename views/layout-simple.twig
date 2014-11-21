@@ -1,24 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MIT Technology Review | Style Guide</title>
-	<meta name="description" content="Guidelines to help you align a microsite, partner website, or other affiliate content served to an audience under the MIT brand.">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="/css/core.css?v={{ uuid }}">
+{% include '_head.twig' %}
 </head>
-<body class="{{ bodyClass }}">
 
-<header class="toolbar">
-	<div class="container">
-		<a href="/" class="brand">MIT Technology Review</a>
-		{% include '_menu-toolbar.twig' %}
-	</div>
-</header>
+{% include '_toolbar.twig' %}
 
 <section class="main layout-simple">
 	<div class="container region">
@@ -30,16 +13,7 @@
 	</div>
 </section>
 
-<footer class="site-footer">
-	<div class="container">
-		<p class="copyright">&copy; 2014 &nbsp;&nbsp;&nbsp;&nbsp; MIT Technology Review</p>
-	</div>
-</footer>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-<script src="/js/twig.min.js"></script>
-<script src="/js/core.js?v={{ uuid }}"></script>
+{% include '_footer.twig' %}
 
 </body>
 </html>

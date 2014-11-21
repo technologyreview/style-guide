@@ -58,6 +58,18 @@
 				window.location.hash = target;
 			});
 		});
+
+		// active subnav states on hashchange
+		$(window).hashchange(function () {
+			console.log('location.hash', location.hash);
+			var activeHashLink = 'aside.secondary a[href="' + location.hash + '"]';
+			console.log(activeHashLink);
+			$(activeHashLink).parent('li').addClass('active');
+		});
+
+		// fire the event on pageload to check for an initial
+		// page load that contains a hash
+		$(window).hashchange();
 	}
 
 })(jQuery);

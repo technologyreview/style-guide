@@ -1,0 +1,20 @@
+<body class="{{ bodyClass }}">
+
+<header class="toolbar">
+	<div class="container">
+		<a href="/" class="brand">MIT Technology Review</a>
+		<span class="site-name">Style Guide</span>
+		<aside class="menu">
+			<div class="menu-zone">
+				<a data-toggle="menu">
+					<i class="ion-navicon-round"></i>
+				</a>
+			</div>
+			<ul>
+{% for item in menu %}
+				<li{% if activeRoute == item.uri %} class="active"{% endif %}><a href="{{ item.uri }}">{{ item.label }}</a></li>
+{% endfor %}
+			</ul>
+		</aside>
+	</div>
+</header>
