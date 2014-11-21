@@ -3,6 +3,7 @@
  *
  * May not be needed, but it's available incase
  */
+"user strict";
 
 (function ($) {
 
@@ -50,20 +51,40 @@
 			e.preventDefault();
 
 			var target = this.hash,
-				$target = $(target);
+				$target = $(target),
+				activeHashLink = 'aside.secondary a[href="' + target + '"]',
+				$currentHash = $(location.hash);
 
+			// immediate active state
+			$(activeHashLink).parent('li')
+				.addClass('active')
+				.siblings().removeClass('active');
+
+			// calc transition speed and positioning
+			var dimensions = {
+				scrollHeight: $('html').height(),
+				from: (location.hash) ? $currentHash.offset().top - offset : 0,
+				to: $target.offset().top - offset,
+				baseTransition: 1500,
+				init: function () {
+					this.difference = (this.from > this.to) ? this.from - this.to : this.to - this.from;
+					this.percentage = Math.round(this.difference / this.scrollHeight * 100) / 100;
+					this.transitionDuration = Math.round(this.baseTransition * this.percentage);
+					return this;
+				}
+			}.init();
+
+			// scroll to new pos
 			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top - offset
-			}, 900, 'swing', function () {
+				'scrollTop': dimensions.to
+			}, dimensions.transitionDuration, 'swing', function () {
 				window.location.hash = target;
 			});
 		});
 
 		// active subnav states on hashchange
 		$(window).hashchange(function () {
-			console.log('location.hash', location.hash);
 			var activeHashLink = 'aside.secondary a[href="' + location.hash + '"]';
-			console.log(activeHashLink);
 			$(activeHashLink).parent('li').addClass('active');
 		});
 
