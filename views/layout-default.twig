@@ -3,9 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MIT Technology Review | Style Guide | {{ title }}</title>
+	<title>MIT Technology Review | Style Guide | {{ title|capitalize }}</title>
 	<meta name="description" content="Guidelines to help you align a microsite, partner website, or other affiliate content served to an audience under the MIT brand.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
 	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
@@ -16,6 +17,7 @@
 <header class="toolbar">
 	<div class="container">
 		<a href="/" class="brand">MIT Technology Review</a>
+		<span class="site-name">Style Guide</span>
 		{% include '_menu-toolbar.twig' %}
 	</div>
 </header>
