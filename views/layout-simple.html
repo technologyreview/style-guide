@@ -1,0 +1,19 @@
+{% include "./_head.html" %}
+</head>
+
+{% include "./_toolbar.html" %}
+
+<section class="main layout-simple">
+	<div class="container region">
+		<main id="view-template" class="primary markdown">
+{% marked %}
+{% include view %}
+{% endmarked %}
+		</main>
+	</div>
+</section>
+
+{% include "./_footer.html" %}
+
+</body>
+</html>

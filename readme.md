@@ -4,14 +4,16 @@ Guidelines to help you align a microsite, partner website, or other affiliate co
 ## Content
 Content templates are located under `/public/views/`, the **Elements** template uses `/public/views/index.twig`.
 
+## Requirements
+1. Home Brew (Mac): `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` then `brew doctor`
+1. Node.js: `brew install node` or by downloading an installing from [Nodejs.com](http://www.nodejs.com)
+1. Bower for client-side package management: `npm install -g bower`
+
 ## Installation (Mac)
-1. Open up the *Terminal* app
-1. Clone the repo to your machine: `git clone git@github.com:technologyreview/style-guide.git ~/Sites/style-guide`
-1. Install Home Brew: `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` then `brew doctor`
-1. Install Node.js: `brew install node`
-1. `cd` to the repo directory and run `npm install` to install all package dependencies
+1. Open up the command line and change to a directory where you want to install the app: `cd ~/Sites`
+1. Clone the repo to your machine: `git clone git@github.com:technologyreview/style-guide.git; cd style-guide`
 1. Install [Gulp](http://gulpjs.com/): `npm install -g gulp`
-1. Run the `gulp` command to start the server
+1. Run the `gulp` command to build the project. This will install package dependencies using `npm` and `bowers`, and then start the local server
 1. Open the browser to `http://localhost:9999`
 
 ## Deployment

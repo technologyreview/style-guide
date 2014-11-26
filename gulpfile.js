@@ -7,7 +7,14 @@ var gulp = require('gulp'),
 	nodemon = require('gulp-nodemon'),
 	jshint = require('gulp-jshint'),
 	livereload = require('gulp-livereload'),
-	uglify = require('gulp-uglifyjs');
+	uglify = require('gulp-uglifyjs'),
+	install = require('gulp-install');
+
+// install package dependencies
+gulp.task('install', function () {
+	gulp.src(['./bower.json', './package.json'])
+		.pipe(install());
+});
 
 // jshint
 gulp.task('jshint', function () {
@@ -17,15 +24,11 @@ gulp.task('jshint', function () {
 
 // concatenate and minify client-side JS
 gulp.task('uglify', function () {
-	gulp.src([
-		'./public/js/jquery-1.11.1.js',
-		'./public/js/jquery.browser.js',
-		'./public/js/jquery.hashchange.js',
-		'./public/js/twig.js',
-		'./public/js/front.js'
-	])
-		.pipe(uglify('build.js'))
-		.pipe(gulp.dest('./public/dist'))
+	gulp.src('./public/js/*.js')
+		.pipe(gulp.dest('./dist/js'))
+		.pipe(rjs({
+			baseUrl: 'dist/js'
+		}))
 		.pipe(livereload());
 });
 
@@ -45,7 +48,7 @@ gulp.task('less', function () {
 // watch for file changes
 gulp.task('watch', function () {
 	gulp.watch('./public/less/*.less', ['less']);
-	gulp.watch('./public/js/*.js', ['uglify']);
+	//gulp.watch('./public/js/*.js', ['require-uglify']);
 });
 
 // nodemon: automatically reload env when files change
@@ -66,4 +69,4 @@ gulp.task('nodemon', function () {
 });
 
 // runtime
-gulp.task('default', ['nodemon', 'watch']);
+gulp.task('default', ['nodemon', 'watch', 'install']);

@@ -36,6 +36,7 @@ html {
 html, body {
 	min-height: 100%;
 	-webkit-font-smoothing: antialiased;
+	background: @red;
 }
 body {
 	height: 100%;
@@ -67,17 +68,6 @@ a {
 		color: white;
 		text-decoration: none;
 	}
-	.current a,
-	a:hover {
-		
-	}
-	.site-name {
-		display: inline-block;
-		margin: 17px 0 0 30px;
-		color: white;
-		font-size: 19px;
-		font-weight: bold;
-	}
 
 	// big devices
 	@media (min-width: 768px) {
@@ -85,12 +75,26 @@ a {
 	}
 }
 .brand {
-	width: 101px;
 	height: 49px;
 	display: block;
-	text-indent: -2005em;
-	background: url('/img/mittr-logo.png') 0 0 no-repeat;
 	float: left;
+	.site-name {
+		display: inline-block;
+		margin: 17px 0 0 30px;
+		color: white;
+		font-size: 19px;
+		font-weight: bold;
+		float: left;
+	}
+	img {
+		display: inline-block;
+		float: left;
+	}
+	&:hover {
+		.site-name {
+			color: @red;
+		}
+	}
 }
 
 // menu
@@ -192,6 +196,7 @@ a {
 .main {
 	padding-top: @toolbar-height;
 	display: block;
+	background: white;
 }
 
 // header
@@ -227,6 +232,13 @@ header.view-header {
 	img + img {
 		margin-left: 20px;
 	}
+	hr {
+		margin: 30px 0;
+		border: none;
+		background: @light-gray-bg;
+		height: 1px;
+		width: 100%;
+	}
 	table {
 		text-align: left;
 		width: 100%;
@@ -257,20 +269,50 @@ header.view-header {
 			}
 		}
 	}
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/*------------------------------------------------------------------------------
+  Layout: Home
+------------------------------------------------------------------------------*/
+
+.layout-simple {
+	.markdown {
+		margin: 0 auto;
+		max-width: 800px;
+		h2 {
+			font-size: 24px;
+			font-weight: normal;
+			color: @dark-gray-txt;
+			margin: 0;
+		}
+	}
 }
 
 /*------------------------------------------------------------------------------
   Layout: Simple
 ------------------------------------------------------------------------------*/
 
-.layout-simple {
+.layout-error {
 	.markdown {
 		text-align: center;
+		h1 {
+			margin: 10px 0 15px;
+		}
 		h2 {
 			font-size: 24px;
 			font-weight: normal;
 			color: @dark-gray-txt;
 			margin: 0;
+		}
+		p {
+			margin: 0 auto;
+			max-width: 800px;
 		}
 	}
 	.region {
@@ -323,17 +365,11 @@ header.view-header {
 
 // content regions
 .region {
-	padding: 50px 0;
+	padding: 50px 0 40px;
 	.header-section {
 		font-weight: 900;
 		font-size: 2.8rem;
 		line-height: 1.2em;
-	}
-	> *:first-child {
-		margin-top: 0;
-	}
-	> *:last-child {
-		margin-bottom: 0;
 	}
 }
 
