@@ -20,22 +20,20 @@ app.set('view engine', 'html');
 
 // configure environments
 var port = process.env.PORT || 9999;
-app.disable('view cache');
+swig.setDefaults({
+	cache: false
+});
 if ('development' === app.get('env')) {
 
 	// disable cache
-	swig.setDefaults({
-		cache: false
-	});
+	app.disable('view cache');
 
 	// enable livereload
 	app.use(require('connect-livereload')({
 		port: 35729
 	}));
 } else {
-	swig.setDefaults({
-		cache: true
-	});
+	app.enable('view cache');
 }
 
 // static files
