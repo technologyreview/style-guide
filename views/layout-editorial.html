@@ -14,7 +14,7 @@
 					<p class="byline">By <a href="#">Rachel Metz</a> on November 13, 2014</p>
 				</header>
 
-				<section class="body">
+				<section id="answers-sidenotes" class="body">
 					<aside class="img-left">
 						<img height="299" src="http://www.technologyreview.com/sites/default/files/images/knightscopex299.jpg" width="299">
 					</aside>
@@ -40,22 +40,25 @@
 
 				<!-- START: Livefyre Embed -->
 				<div id="livefyre-comments"></div>
-				<script type="text/javascript" src="http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js"></script>
-				<script type="text/javascript" src="//cdn.livefyre.com/libs/sidenotes/v0.1.0-beta/sidenotes.min.js"></script>
+				<script type="text/javascript" src="//cdn.livefyre.com/Livefyre.js"></script>
 				<script type="text/javascript">
 				(function () {
+					// sidenotes
 					var articleId = fyre.conv.load.makeArticleId(null);
-					fyre.conv.load({}, [{
-						el: 'livefyre-comments',
-						network: "livefyre.com",
-						siteId: "368423",
+					var convConfig = {
+						network: 'livefyre.com',
+						siteId: '368423',
 						articleId: articleId,
-						signed: false,
-						collectionMeta: {
-							articleId: articleId,
-							url: fyre.conv.load.makeCollectionUrl(),
-						}
-					}], function() {});
+						selectors: 'section.body',
+						//checksum: '58873e02bb3ed6f94212b2f369888e96',
+						collectionMeta: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0aXRsZSI6IkFuc3dlcnMgc2lkZW5vdGVzIEV4YW1wbGUiLCJhcnRpY2xlSWQiOiJhbnN3ZXJzLXNpZGVub3RlcyIsInR5cGUiOiJzaWRlbm90ZXMiLCJ1cmwiOiJodHRwOi8vYW5zd2Vycy5saXZlZnlyZS5jb20vZGVtby9zaWRlbm90ZXMifQ.tLBJJhV6ERDxDHZ2cPAH7qXZnQ5QDrtSigCuUOB92Vs'
+					};
+
+					Livefyre.require(['sidenotes#1'],function (Sidenotes, auth) {
+						new Sidenotes(convConfig, function (sidenotesWidget) {
+							console.log(sidenotesWidget);
+						}());
+					});
 				}());
 				</script>
 				<!-- END: Livefyre Embed -->

@@ -45,9 +45,6 @@ require.config({
 		},
 		underscore: {
 			exports: '_'
-		},
-		livefyre: {
-			exports: 'fyre'
 		}
 	},
 
