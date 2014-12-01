@@ -34,13 +34,23 @@ gulp.task('uglify', function () {
 
 // compile LESS
 gulp.task('less', function () {
+
+	// core.less
 	gulp.src('./public/less/core.less')
 		.pipe(less({
-			paths: [path.join(__dirname, 'less')],
 			lint: true,
 			compress: true
 		}))
-		.pipe(rename('build.css'))
+		.pipe(gulp.dest('./public/dist'))
+		.pipe(livereload());
+
+	// editorial
+	gulp.src('./public/less/editorial.less')
+		.pipe(less({
+			lint: true,
+			compress: true
+		}))
+		.pipe(rename('editorial.css'))
 		.pipe(gulp.dest('./public/dist'))
 		.pipe(livereload());
 });

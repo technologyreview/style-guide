@@ -5,15 +5,13 @@
  */
 
 /*------------------------------------------------------------------------------
-  Framework
+  Dependencies
 ------------------------------------------------------------------------------*/
 
-// library
 @import url('fonts.less');
-@import url('//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css');
-@import url('library.less');
 @import url('normalize.less');
 @import url('grid.less');
+@import url('library.less');
 @import url('view-elements.less');
 @import url('view-components.less');
 @import url('view-patterns.less');
@@ -22,9 +20,6 @@
 @menu-width: 200px;
 @toolbar-height: 89px;
 @nav-slide-height: 215px;
-
-// views
-@import url('editorial.less');
 
 /*------------------------------------------------------------------------------
   Global
@@ -205,7 +200,7 @@ header.view-header {
 }
 
 // content
-.markdown {
+.main {
 	h1 + p {
 		font-weight: 300;
 		font-size: 2.4rem;
@@ -285,12 +280,12 @@ header.view-header {
 	.markdown {
 		margin: 0 auto;
 		max-width: 800px;
-		h2 {
-			font-size: 24px;
-			font-weight: normal;
-			color: @dark-gray-txt;
-			margin: 0;
-		}
+	}
+	h2 {
+		font-size: 24px;
+		font-weight: normal;
+		color: @dark-gray-txt;
+		margin: 0;
 	}
 }
 
@@ -365,7 +360,7 @@ header.view-header {
 
 // content regions
 .region {
-	padding: 50px 0 40px;
+	padding: 50px 0 10px;
 	.header-section {
 		font-weight: 900;
 		font-size: 2.8rem;

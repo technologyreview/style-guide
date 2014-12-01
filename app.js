@@ -30,7 +30,7 @@ if ('development' === app.get('env')) {
 
 	// enable livereload
 	app.use(require('connect-livereload')({
-		port: 35729
+		port: 99991
 	}));
 } else {
 	app.enable('view cache');
@@ -78,9 +78,9 @@ app.get('/*', function (req, res) {
 			activeRoute: req.url,
 			title: viewTitle
 		});
-	} else if (req.url === '/livefyre') {
+	} else if (req.url === '/editorial') {
 		res.render('layout-simple', {
-			view: './livefyre.html',
+			view: './editorial.html',
 			activeRoute: req.url,
 			title: viewTitle
 		});

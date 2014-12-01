@@ -1,38 +1,46 @@
 /*------------------------------------------------------------------------------
+  Dependencies
+------------------------------------------------------------------------------*/
+
+@import url('library.less');
+
+
+/*------------------------------------------------------------------------------
   Editorial styles
 ------------------------------------------------------------------------------*/
 
-.header-title {
-	font-size: 4.8rem;
-	line-height: 5.75rem;
-	margin: 0 0 2rem;
-	font-family: @font-headline;
-	-webkit-font-smoothing: antialiased;
-	font-weight: normal;
-}
-.header-topic {
-	font-size: 1.4rem;
-	text-transform: uppercase;
-	font-weight: normal;
-	color: @dark-gray-txt;
-	margin: 0 0 25px;
-}
-.intro {
-	font-weight: 300;
-	font-size: 2.4rem;
-	line-height: 3rem;
-	margin-bottom: 2.5rem;
-	margin: 0 0 25px;
-}
-.byline {
-	font-size: 1.2rem;
-	line-height: 1.5rem;
-	color: @gray;
-	margin: 0 0 25px;
-}
 .article-meta {
 	width: 64.9rem;
 	margin: 0 auto;
+	.header-title {
+		font-size: 4.8rem;
+		line-height: 5.75rem;
+		margin: 0 0 2rem;
+		font-family: @font-headline;
+		-webkit-font-smoothing: antialiased;
+		font-weight: normal;
+	}
+	.header-topic {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		font-weight: normal;
+		color: @dark-gray-txt;
+		margin: 0 0 25px;
+	}
+	.intro {
+		font-weight: 300;
+		font-size: 2.4rem;
+		line-height: 3rem;
+		margin-bottom: 2.5rem;
+		margin: 0 0 25px;
+		color: #000;
+	}
+	.byline {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		color: @gray;
+		margin: 0 0 25px;
+	}
 }
 section.body {
 	float: left;
