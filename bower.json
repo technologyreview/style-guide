@@ -28,6 +28,7 @@
     "underscore": "~1.7.0",
     "requirejs": "~2.1.15",
     "require-css": "~0.1.8",
-    "ionicons": "~1.5.2"
+    "ionicons": "~1.5.2",
+    "twig.js": "~0.7.2"
   }
 }
