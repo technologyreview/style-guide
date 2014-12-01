@@ -38,7 +38,7 @@ require.config({
 	// 
 	shim: {
 		browser: ["jquery"],
-		hashchange: ["jquery"],
+		hashchange: ["jquery", "browser"],
 		backbone: {
 			deps: ['underscore', 'jquery'],
 			exports: 'Backbone'
