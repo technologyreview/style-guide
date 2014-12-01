@@ -79,8 +79,7 @@ app.get('/*', function (req, res) {
 			title: viewTitle
 		});
 	} else if (req.url === '/editorial') {
-		res.render('layout-simple', {
-			view: './editorial.html',
+		res.render('layout-editorial', {
 			activeRoute: req.url,
 			title: viewTitle
 		});
