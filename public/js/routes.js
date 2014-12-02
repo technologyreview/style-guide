@@ -16,22 +16,16 @@ define(function (require) {
 			'patterns': 'page'
 		},
 
-		initialize: function () {
-			console.log('router init');
-		},
+		initialize: function () {},
 
 		page: function () {
 			var PageView = require('views/page'),
 				pageView = new PageView();
-
-			console.log('page view');
 		},
 
 		editorial: function () {
 			var CommentsView = require('views/editorial'),
 				editorialView = new CommentsView();
-
-			console.log('editorial view');
 		}
 	});
 

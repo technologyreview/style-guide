@@ -9,7 +9,8 @@ var express = require('express'),
 	marked = require('marked'),
 	randomstring = require('randomstring'),
 	_ = require('underscore'),
-	fs = require('fs');
+	fs = require('fs'),
+	livefyre = require('livefyre');
 
 // templating
 markedSwig.useFilter(swig);
@@ -78,12 +79,60 @@ app.get('/*', function (req, res) {
 			activeRoute: req.url,
 			title: viewTitle
 		});
-	} else if (req.url === '/editorial') {
+	}
+
+	// editorial
+	else if (req.url === '/editorial') {
+
+		// livefyre options
+		var livefyreOpts = {
+			networkName: "technologyreview.fyre.co",
+			networkKey: "rEKnOyNhCQq9YmDKkuXgI+V51kw=",
+			siteId: "296821",
+			siteKey: "lOBTfAoFgehGXT/1pbxINIH/Rr8=",
+			title: 'Sample editorial article',
+			url: 'http://styleguide.technologyreview.com/editorial',
+			articleId: '12345678911',
+			drupalUserID: 'uid_1274241',
+			drupalDisplayName: 'kevin.leary'
+		};
+
+		// livefyre collection meta token generation
+		if (livefyreOpts.siteKey && livefyreOpts.networkKey) {
+			var network = livefyre.getNetwork(livefyreOpts.networkName, livefyreOpts.networkKey);
+			var site = network.getSite(livefyreOpts.siteId, livefyreOpts.siteKey);
+
+			// collection
+			var collection = site.buildCommentsCollection(
+				livefyreOpts.title,
+				livefyreOpts.articleId,
+				livefyreOpts.url
+			);
+			var collectionMetaToken = collection.buildCollectionMetaToken();
+
+			// user auth
+			var userAuthToken = network.buildUserAuthToken(livefyreOpts.drupalUserID, livefyreOpts.drupalDisplayName, 9999999999);
+
+		} else {
+			var collectionMetaToken = '***UNSET***';
+		}
+
+		// output template
 		res.render('layout-editorial', {
 			activeRoute: req.url,
-			title: viewTitle
+			title: viewTitle,
+			server: JSON.stringify({
+				collectionMetaToken: collectionMetaToken,
+				networkName: livefyreOpts.networkName,
+				siteId: livefyreOpts.siteId,
+				articleId: livefyreOpts.articleId,
+				userAuthToken: userAuthToken
+			}, null, "\t")
 		});
-	} else {
+	}
+
+	// defaults
+	else {
 
 		// does the view template for this route exist? if not serve an error page
 		fs.exists(templatePath, function (exists) {

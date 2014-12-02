@@ -1,17 +1,26 @@
 {% include "./_head.html" %}
+
+<link rel="stylesheet" href="/dist/editorial.css">
+
+<!-- Passed from server -->
+<script type="text/javascript">
+var server = {{ server|raw }};
+</script>
+
 </head>
 
 {% include "./_toolbar.html" %}
 
 <section class="main layout-simple">
 	<div class="container region">
-		<main id="view-template" class="primary markdown">
+		<main id="view-template" class="primary markdown hidden">
 			<article class="type-article">
 				<header class="article-meta">
 					<h2 class="header-topic">Computing News</h2>
 					<h1 class="header-title">Rise of the Robot Security Guards</h1>
 					<p class="intro">Startup Knightscope is preparing to roll out human-size robot patrols.</p>
 					<p class="byline">By <a href="#">Rachel Metz</a> on November 13, 2014</p>
+					<span class="comment-count"></span>
 				</header>
 
 				<section id="answers-sidenotes" class="body">
@@ -38,29 +47,12 @@
 					<p>The robots will also have to work on their balance. While speaking with Stephens, I noticed that a K5 in the distance had somehow toppled over the edge of the sidewalk onto the parking-lot asphalt several inches below. A couple of Knightscope folks were needed to pull it upright. Unlike human security guards, these robots still cannot right themselves if they fall.</p>
 				</section>
 
+				<div id="discussion"></div>
+
 				<!-- START: Livefyre Embed -->
 				<div id="livefyre-comments"></div>
-				<script type="text/javascript" src="//cdn.livefyre.com/Livefyre.js"></script>
-				<script type="text/javascript">
-				(function () {
-					// sidenotes
-					var convConfig = {
-						network: 'livefyre.com',
-						siteId: '368423',
-						articleId: 'sidenotes-sample',
-						selectors: 'section.body',
-						//checksum: '58873e02bb3ed6f94212b2f369888e96',
-						collectionMeta: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0aXRsZSI6IkFuc3dlcnMgc2lkZW5vdGVzIEV4YW1wbGUiLCJhcnRpY2xlSWQiOiJhbnN3ZXJzLXNpZGVub3RlcyIsInR5cGUiOiJzaWRlbm90ZXMiLCJ1cmwiOiJodHRwOi8vYW5zd2Vycy5saXZlZnlyZS5jb20vZGVtby9zaWRlbm90ZXMifQ.tLBJJhV6ERDxDHZ2cPAH7qXZnQ5QDrtSigCuUOB92Vs'
-					};
 
-					Livefyre.require(['sidenotes#1'],function (Sidenotes, auth) {
-						new Sidenotes(convConfig, function (sidenotesWidget) {
-							console.log(sidenotesWidget);
-						}());
-					});
-				}());
-				</script>
-				<!-- END: Livefyre Embed -->
+			
 			</article>
 		</main>
 	</div>

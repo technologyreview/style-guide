@@ -390,6 +390,9 @@ h3 {
 	font-size: 12px;
 	margin: 25px 0 10px;
 	color: @dark-gray-txt;
+	a {
+		text-decoration: none;
+	}
 }
 h1 + h2 {
 	margin-top: 0;
@@ -445,5 +448,15 @@ pre {
 	.copyright {
 		font-size: 1.2rem;
 		margin: 0;
+	}
+	span {
+		margin: 0 5px;
+	}
+	a {
+		color: white;
+		opacity: 0.5;
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
