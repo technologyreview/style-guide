@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"name": "Public",
+			"path": "./public"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Root",
+			"path": "./"
+		}
+	],
+	"settings":
+	{
+		"tab_size": 4
+	}
+}

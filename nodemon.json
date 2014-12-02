@@ -1,7 +1,7 @@
 {
 	"verbose": true,
 	"script": "app.js",
-	"ext": "js twig html",
+	"ext": "js html",
 	"env": {
 		"NODE_ENV": "development"
 	},

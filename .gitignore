@@ -14,3 +14,4 @@ Temporary Items
 
 # Node.js
 node_modules
+*.sublime-workspace

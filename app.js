@@ -5,14 +5,11 @@ var express = require('express'),
 	favicon = require('serve-favicon'),
 	swig = require('swig'),
 	markedSwig = require('swig-marked'),
-	swigify = require('swigify'),
-	marked = require('marked'),
 	randomstring = require('randomstring'),
 	_ = require('underscore'),
-	fs = require('fs'),
-	livefyre = require('livefyre');
+	fs = require('fs');
 
-// templating
+// templating (w/Markdown)
 markedSwig.useFilter(swig);
 markedSwig.useTag(swig);
 app.engine('html', swig.renderFile);
@@ -31,7 +28,7 @@ if ('development' === app.get('env')) {
 
 	// enable livereload
 	app.use(require('connect-livereload')({
-		port: 99991
+		port: 35729
 	}));
 } else {
 	app.enable('view cache');
@@ -44,18 +41,21 @@ app.use(favicon(__dirname + '/public/img/favicon.ico'));
 // data: navigation
 app.locals = _.extend(app.locals, {
 	menu: [{
-		label: 'Elements',
-		uri: '/elements'
+		label: 'Home',
+		uri: '/'
 	}, {
-		label: 'Components',
-		uri: '/components'
+		label: 'Page',
+		uri: '/page'
 	}, {
-		label: 'Patterns',
-		uri: '/patterns'
+		label: 'Error',
+		uri: '/404'
 	}],
 	bodyClass: 'nav-closed',
 	uuid: randomstring.generate(12),
-	organization: "MIT Technology Review"
+	organization: "MIT Technology Review",
+	project: "Project title",
+	logo: "/img/mittr-logo-square.png",
+	year: 2014
 });
 
 /**
@@ -78,56 +78,6 @@ app.get('/*', function (req, res) {
 			view: './index.html',
 			activeRoute: req.url,
 			title: viewTitle
-		});
-	}
-
-	// editorial
-	else if (req.url === '/editorial') {
-
-		// livefyre options
-		var livefyreOpts = {
-			networkName: "technologyreview.fyre.co",
-			networkKey: "rEKnOyNhCQq9YmDKkuXgI+V51kw=",
-			siteId: "296821",
-			siteKey: "lOBTfAoFgehGXT/1pbxINIH/Rr8=",
-			title: 'Sample editorial article',
-			url: 'http://styleguide.technologyreview.com/editorial',
-			articleId: '12345678911',
-			drupalUserID: 'uid_1274241',
-			drupalDisplayName: 'kevin.leary'
-		};
-
-		// livefyre collection meta token generation
-		if (livefyreOpts.siteKey && livefyreOpts.networkKey) {
-			var network = livefyre.getNetwork(livefyreOpts.networkName, livefyreOpts.networkKey);
-			var site = network.getSite(livefyreOpts.siteId, livefyreOpts.siteKey);
-
-			// collection
-			var collection = site.buildCommentsCollection(
-				livefyreOpts.title,
-				livefyreOpts.articleId,
-				livefyreOpts.url
-			);
-			var collectionMetaToken = collection.buildCollectionMetaToken();
-
-			// user auth
-			var userAuthToken = network.buildUserAuthToken(livefyreOpts.drupalUserID, livefyreOpts.drupalDisplayName, 9999999999);
-
-		} else {
-			var collectionMetaToken = '***UNSET***';
-		}
-
-		// output template
-		res.render('layout-editorial', {
-			activeRoute: req.url,
-			title: viewTitle,
-			server: JSON.stringify({
-				collectionMetaToken: collectionMetaToken,
-				networkName: livefyreOpts.networkName,
-				siteId: livefyreOpts.siteId,
-				articleId: livefyreOpts.articleId,
-				userAuthToken: userAuthToken
-			}, null, "\t")
 		});
 	}
 
