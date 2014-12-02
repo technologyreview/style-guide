@@ -6,12 +6,40 @@
 
 
 /*------------------------------------------------------------------------------
-  Livefyre commenting
+  Livefyre
 ------------------------------------------------------------------------------*/
 
-#livefyre-comments {
-	clear: both;
-	padding: 40px 0 0;
+
+// comments
+#discussion {
+	.fyre-logo-drop {
+		display: none;
+	}
+}
+
+// sidenotes
+body {
+	.comment-count {
+		position: absolute;
+		top: 0;
+		right: 0;
+		.lf-num-sidenotes {
+			border: none;
+			font-family: @font-body;
+		}
+		.lf-text {
+			color: @dark-gray-txt;
+			margin: 0 0 0 8px;
+		}
+		.fycon-question { display: none }
+	}
+	span.lf-thread-btn.lf-active a.fycon-action-view, 
+	span.lf-thread-btn a.fycon-action-view:hover {
+		color: @red;
+	}
+	.lf-powered-by {
+		display: none !important;
+	}
 }
 
 /*------------------------------------------------------------------------------
@@ -50,20 +78,6 @@
 		line-height: 1.5rem;
 		color: @gray;
 		margin: 0 0 25px;
-	}
-	.comment-count {
-		position: absolute;
-		top: 0;
-		right: 0;
-		.lf-num-sidenotes {
-			border: none;
-			font-family: @font-body;
-		}
-		.lf-text {
-			color: @dark-gray-txt;
-			margin: 0 0 0 8px;
-		}
-		.fycon-question { display: none }
 	}
 }
 section.body {

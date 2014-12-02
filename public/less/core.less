@@ -58,7 +58,7 @@ a {
 	left: 0;
 	right: 0;
 	z-index: 2;
-	border-bottom: 2px solid white;
+	.box-shadow( 0 10px 25px rgba(255,255,255,0.5) );
 	a {
 		color: white;
 		text-decoration: none;
@@ -269,6 +269,22 @@ header.view-header {
 	}
 	> *:last-child {
 		margin-bottom: 0;
+	}
+}
+
+/*------------------------------------------------------------------------------
+  Subsidiary area
+------------------------------------------------------------------------------*/
+
+.subsidiary {
+	padding: 50px 0;
+	background: #f0f0f0;
+	border-top: 50px solid white;
+	.fyre-editor .fyre-editor-container .fyre-editor-editable {
+		background-color: white;
+	}
+	+ .site-footer {
+		border-top: none;
 	}
 }
 

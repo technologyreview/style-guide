@@ -34,56 +34,45 @@ define(function (require) {
 			if (!server || !server.collectionMetaToken)
 				return;
 
-			console.log(Livefyre);
-
-			// config
-			var convConfig = {
-				network: server.networkName,
-				siteId: server.siteId,
-				articleId: server.articleId,
-				collectionMeta: server.collectionMetaToken,
-				selectors: 'section.body > h2, section.body > h3, section.body > p, section.body > ol, section.body > ul',
-				numSidenotesEl: 'span.comment-count',
-				threadContainerEl: 'div.discussion'
-				//checksum: '58873e02bb3ed6f94212b2f369888e96',
-			};
-
 			// app integration
 			Livefyre.require(['fyre.conv#3', 'sidenotes#1', 'auth'], function (Conv, Sidenotes, auth) {
 				try {
 
+					// 
 					// app: comments
+					// http://answers.livefyre.com/developers/app-integrations/comments/
+					// 
 					new Conv({
-						network: server.networkName
-					}, [convConfig], function (commentsWidget) {
-						console.log(commentsWidget);
-					}());
+						network: server.networkName,
+					}, [{
+						siteId: server.siteId,
+						articleId: server.articleId,
+						collectionMeta: server.collectionMetaToken,
+						el: 'discussion'
+					}]);
 
+					// 
 					// app: sidenotes
-					var sidenotes = new Sidenotes(convConfig, function (sidenotesWidget) {
-						if (sidenotesWidget)
-							console.log(sidenotesWidget);
-					}());
-
-					// authentication
-					auth.delegate({
-						login: function (cb) {
-							cb(null, {
-								livefyre: server.userAuthToken
-							});
-						},
-						logout: function (cb) {
-							cb(null);
-						},
-						viewProfile: function (author) {
-							console.log(author);
-						},
-						editProfile: function (author) {
-							console.log(author);
-						}
+					// http://answers.livefyre.com/developers/app-integrations/sidenotes/
+					// 
+					var sidenotes = new Sidenotes({
+						network: server.networkName,
+						siteId: server.siteId,
+						articleId: server.articleId,
+						collectionMeta: server.collectionMetaToken,
+						selectors: 'section.body > h2, section.body > h3, section.body > p, section.body > ol, section.body > ul',
+						numSidenotesEl: 'span.comment-count'
 					});
 
-				} catch (err) {
+					// authentication
+					auth.authenticate({
+						livefyre: server.userAuthToken
+					});
+
+				}
+
+				// errors
+				catch (err) {
 					console.error(err.message);
 				}
 			});
