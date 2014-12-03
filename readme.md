@@ -1,5 +1,5 @@
-# Node App Framework
-Forked from the [Style Guide project](https://github.com/technologyreview/node-app), this is a stripped down framework for hacking at HTTP API's with Node.js
+# MIT Technology Review Web Style Guide
+Guidelines to help you align a microsite, partner website, or other affiliate content served to an audience under the MIT brand.
 
 ## Content
 Content templates are located under `/public/views/`, the **Elements** template uses `/public/views/index.twig`.
@@ -11,9 +11,9 @@ Content templates are located under `/public/views/`, the **Elements** template 
 
 ## Installation (Mac)
 1. Open up the command line and change to a directory where you want to install the app: `cd ~/Sites`
-1. Clone the repo to your machine: `git clone git@github.com:technologyreview/node-app.git; cd node-app`
-1. Install node packages: `npm install`
-1. Run the `gulp` command to build the project. This will install package dependencies using `bower`, and then start the local server
+1. Clone the repo to your machine: `git clone git@github.com:technologyreview/style-guide.git; cd style-guide`
+1. Install [Gulp](http://gulpjs.com/): `npm install -g gulp`
+1. Run the `gulp` command to build the project. This will install package dependencies using `npm` and `bowers`, and then start the local server
 1. Open the browser to `http://localhost:9999`
 
 ## Deployment
@@ -25,7 +25,7 @@ The production version of this style guide is hosted at [Heroku]() and has two e
 
 To configure easy command-line deployment:
 
-1. `cd` to the repo directory on your machine: `~/Sites/node-app`
+1. `cd` to the repo directory on your machine: `~/Sites/style-guide`
 1. Download and install the [Heroku Toolbelt](https://toolbelt.heroku.com/)
 1. Login to Heroku: `heroku login` with email `Infrastructure@TechnologyReview.com` and password `techRev1w0293057*`
 1. Add the `staging` remote to Git for deploying changes to the staging Heroku environment: `git remote add staging git@heroku.com:mittr-styleguide-staging.git`

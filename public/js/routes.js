@@ -10,7 +10,10 @@ define(function (require) {
 
 	return Backbone.Router.extend({
 		routes: {
-			'page': 'page',
+			'editorial': 'editorial',
+			'elements': 'page',
+			'components': 'page',
+			'patterns': 'page'
 		},
 
 		initialize: function () {},
@@ -18,6 +21,11 @@ define(function (require) {
 		page: function () {
 			var PageView = require('views/page'),
 				pageView = new PageView();
+		},
+
+		editorial: function () {
+			var CommentsView = require('views/editorial'),
+				editorialView = new CommentsView();
 		}
 	});
 

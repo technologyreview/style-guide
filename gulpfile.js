@@ -43,6 +43,16 @@ gulp.task('less', function () {
 		}))
 		.pipe(gulp.dest('./public/dist'))
 		.pipe(livereload());
+
+	// editorial
+	gulp.src('./public/less/editorial.less')
+		.pipe(less({
+			lint: true,
+			compress: true
+		}))
+		.pipe(rename('editorial.css'))
+		.pipe(gulp.dest('./public/dist'))
+		.pipe(livereload());
 });
 
 // watch for file changes
@@ -55,7 +65,7 @@ gulp.task('watch', function () {
 gulp.task('nodemon', function () {
 	nodemon({
 		script: 'app.js',
-		ext: 'js html',
+		ext: 'js twig',
 		ignore: ['public/*'],
 		nodeArgs: ['--debug'],
 		env: {

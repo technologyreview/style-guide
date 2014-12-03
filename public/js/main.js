@@ -27,6 +27,7 @@ require.config({
 		underscore: 'underscore/underscore-min',
 		backbone: 'backbone/backbone',
 		twig: 'twig.js/twig.min',
+		livefyre: '//cdn.livefyre.com/Livefyre',
 		router: '../routes',
 		views: '../views',
 		templates: '../templates'
