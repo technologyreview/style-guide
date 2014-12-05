@@ -39,19 +39,6 @@ define(function (require) {
 				try {
 
 					// 
-					// app: comments
-					// http://answers.livefyre.com/developers/app-integrations/comments/
-					// 
-					new Conv({
-						network: server.networkName,
-					}, [{
-						siteId: server.siteId,
-						articleId: server.articleId,
-						collectionMeta: server.collectionMetaToken,
-						el: 'discussion'
-					}]);
-
-					// 
 					// app: sidenotes
 					// http://answers.livefyre.com/developers/app-integrations/sidenotes/
 					// 
