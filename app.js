@@ -81,8 +81,8 @@ app.get('/*', function (req, res) {
 		});
 	}
 
-	// editorial
-	else if (req.url === '/editorial') {
+	// livefyre-sidenotes
+	else if (req.url === '/livefyre-sidenotes') {
 
 		// livefyre options
 		var livefyreOpts = {
@@ -90,8 +90,8 @@ app.get('/*', function (req, res) {
 			networkKey: "rEKnOyNhCQq9YmDKkuXgI+V51kw=",
 			siteId: "296821",
 			siteKey: "lOBTfAoFgehGXT/1pbxINIH/Rr8=",
-			title: 'Sample editorial article',
-			url: 'http://styleguide.technologyreview.com/editorial',
+			title: 'Sample livefyre-sidenotes article',
+			url: 'http://styleguide.technologyreview.com/livefyre-sidenotes',
 			articleId: '12345678911',
 			drupalUserID: 'uid_1274241',
 			drupalDisplayName: 'kevin.leary'
@@ -118,7 +118,7 @@ app.get('/*', function (req, res) {
 		}
 
 		// output template
-		res.render('layout-editorial', {
+		res.render('layout-livefyre-sidenotes', {
 			activeRoute: req.url,
 			title: viewTitle,
 			server: JSON.stringify({

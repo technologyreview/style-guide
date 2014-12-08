@@ -44,13 +44,13 @@ gulp.task('less', function () {
 		.pipe(gulp.dest('./public/dist'))
 		.pipe(livereload());
 
-	// editorial
-	gulp.src('./public/less/editorial.less')
+	// livefyre-sidenotes
+	gulp.src('./public/less/livefyre-sidenotes.less')
 		.pipe(less({
 			lint: true,
 			compress: true
 		}))
-		.pipe(rename('editorial.css'))
+		.pipe(rename('livefyre-sidenotes.css'))
 		.pipe(gulp.dest('./public/dist'))
 		.pipe(livereload());
 });

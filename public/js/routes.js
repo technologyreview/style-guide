@@ -10,7 +10,7 @@ define(function (require) {
 
 	return Backbone.Router.extend({
 		routes: {
-			'editorial': 'editorial',
+			'livefyre-sidenotes': 'livefyreSidenotes',
 			'elements': 'page',
 			'components': 'page',
 			'patterns': 'page'
@@ -23,7 +23,7 @@ define(function (require) {
 				pageView = new PageView();
 		},
 
-		editorial: function () {
+		livefyreSidenotes: function () {
 			var CommentsView = require('views/editorial'),
 				editorialView = new CommentsView();
 		}
