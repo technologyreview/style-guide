@@ -94,7 +94,7 @@ app.get('/*', function(req, res) {
             url: 'http://styleguide.technologyreview.com/livefyre-sidenotes',
             articleId: '12345678911',
             drupalUserID: 'uid_1048196',
-            drupalDisplayName: 'kevin.leary'
+            drupalDisplayName: 'erik.pelletier'
         };
 
         // livefyre collection meta token generation
