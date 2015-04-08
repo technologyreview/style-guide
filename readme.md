@@ -25,7 +25,7 @@ The production version of this style guide is hosted at [Heroku]() and has two e
 
 To configure easy command-line deployment:
 
-1. `cd` to the repo directory on your machine: `~/Sites/style-guide`
+1. `cd` to the repo directory on your machine: `~/Sites/mittr-styleguide`
 1. Download and install the [Heroku Toolbelt](https://toolbelt.heroku.com/)
 1. Login to Heroku: `heroku login` with email `Infrastructure@TechnologyReview.com` and password `techRev1w0293057*`
 1. Add the `staging` remote to Git for deploying changes to the staging Heroku environment: `git remote add staging git@heroku.com:mittr-styleguide-staging.git`
