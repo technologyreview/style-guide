@@ -1,0 +1,34 @@
+NEED:
+
+* pattern-newsletter.png
+* tease-feed-image.png
+* tease-feed.png
+* pub-promo-12.png
+* pub-promo-mag.png
+* event-promo.png
+* widgets.png
+palette.png
+grid.png
+
+
+
+
+HAVE:
+
+pattern-account.png
+pattern-footer.png
+pattern-header.png
+ad-spaces.png
+tease-group.png
+tease-author.png
+article-promo.png
+navigation.png
+social-follow-us.png
+social-horizontal.png
+social-vertical.png
+link.png
+icons.png
+topper-vertical.png
+topper-standard.png
+topper-horizontal.png
+
