@@ -1,0 +1,169 @@
+# Elements
+Fundamental building blocks of MIT Technology Review's digital styles.
+
+## Doctype
+{{ organization }} makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+
+### HTML
+```html
+<!DOCTYPE html>
+<html lang="en">
+  ...
+</html>
+```
+
+### Preview
+![HTML5 Doctype](/img/elements-doctype-1.png)
+
+## Units &amp; Measurement
+
+CSS3 introduces a few new units, including the rem unit, which stands for "root em". The em unit is relative to the font-size of the parent, which causes the compounding issue. The rem unit is relative to the root—or the html—element. That means that we can define a single font size on the html element and define all rem units to be a percentage of that.
+
+### HTML
+```html
+html { font-size: 62.5%; } 
+body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+```
+
+## Typography
+
+#### Fonts
+
+### Neue Haas Grotesk
+
+The digital version of Helvetica that everyone knows and uses today is quite different from the typeface’s pre-digital
+design. Originally released as Neue Haas Grotesk, many of the features that made it a Modernist favorite were lost in
+translation as the designs were reworked for changing typesetting technologies.
+
+In 2011, type designer Christian Schwartz restored the original Neue Haas Grotesk in digital form – bringing back features like optical size variations, alternate glyphs, and refined spacing – and captured much of the warmth and personality of the original.
+
+Neue Haas Grotesk is the most widely used font on the MIT Technology Review website. It's used for body text, metadata, story lists and streams, comments, and other widgets.
+
+![Neue Haas Grotesk example](/img/elements-typography-1.gif)
+
+### Miller
+
+Miller, designed by Matthew Carter in 1997, is a “Scotch Roman,” a class of sturdy, general purpose types of Scottish
+origin, widely used in the United States in the 19th century. 
+
+Miller is faithful to the Scotch style though not to any one historical example — and is authentic in having both roman and italic
+small caps, a feature of the originals.
+
+On our website, we use Miller almost exclusively for headlines on article pages.
+
+![Miller example](/img/elements-typography-2.gif)
+
+### Benton Sans
+
+Benton Sans is a typeface that is the result of Tobias Frere-Jones efforts to study and redesign News Gothic in 1995, which was later expanded by Cyrus Highsmith. 
+
+Benton Sans is used mostly for utility and navigation purposes.
+
+![Benton Sans example](/img/elements-typography-3.gif)
+
+## Images
+
+There are a few different ways we place images in stories. 
+
+#### Thumbnails
+
+A story's thumbnail is used in a variety of places across the website including stream pages, various sections of the home page, and related content boxes. To ensure consistency in layout, the dimensions of the thumbnails are always square. We size our thumbnails to be 392 x 392 pixels so that if that image is selected as the A1 story, it will be large enough for the A1 on the home page.
+
+### Example of a thumbnail at different sizes throughout the website
+
+![Example: Thumbnail image on the home page](/img/elements-images-1.jpg)
+
+![Example: Thumbnail image in a story](/img/elements-images-2.jpg)
+
+![Example: Thumbnail image in a dropdown menu](/img/elements-images-3.jpg)
+
+#### Images in stories
+
+Articles can support images as wide as 519px. If an image is 299px in width or less, it hangs into the margin with the caption tucked underneath it. 
+
+### Small image that is 299px wide
+
+![Example: Small image in a story](/img/elements-images-4.jpg)
+
+When an image is 300px wide or more, it will be displayed in alignment with the body text. Larger images should be no wider than 519px. 
+
+### Large image that is 519px wide
+
+![Example: Large image in a story](/img/elements-images-5.jpg)
+
+## Links
+
+### Style
+Text links on the MIT Technology Review website should be blue (hex code #206f96) and underlined. The hover state should change to red (hex code #d7182a).
+
+[Example link]() 
+
+### Behavior
+Links should always open in the same window or tab, allowing the user to retain control over their navigation and browsing experience. They should never open in a new window or tab.
+
+## Buttons
+
+### Primary 
+
+This style should be used for primary calls to action that initiate some kind of transaction, such as "Buy Now" or "Activate Account".
+
+![Example: Primary button](/img/elements-buttons-1.jpg)
+
+### Secondary 
+
+These smaller buttons are for secondary actions and functions, such as pagination, 
+
+![Example: Secondary button](/img/elements-buttons-2.jpg)
+
+### Tertiary 
+
+These text links are for actions used to navigate the website. There may be several of these buttons present on a single page.
+
+![Example: Tertiary buttons](/img/elements-buttons-3.jpg)
+![Example: Tertiary buttons](/img/elements-buttons-4.jpg)
+![Example: Tertiary buttons](/img/elements-buttons-5.jpg)
+
+### Behavior
+Buttons should always open in the same window or tab, allowing the user to retain control over their navigation and browsing experience. They should never open in a new window or tab.
+
+## Branding &amp; Colors
+
+### Branding
+
+On the MIT Technology Review website, we use the Stacked Logo. The Stacked Logo should be used in contexts where the simplest or boldest expression is needed, including situations where it will be seen with other logos –
+such as a listing of event sponsors – and on magazine covers.
+
+The logo must always be used as a supplied graphic file, and never typeset by the user, to ensure that the correct scale relationships and spacing are maintained. The letterforms have been redrawn to work at different scales, so it is crucial that the logo not be recreated from the typefaces.
+
+The areas around the logo should always be kept clear of external graphic elements. 
+
+We use the white version of the logo on a black background, and it appears both in the [header](/patterns#header) and the [footer](/patterns#footer).
+
+![Example: Logo](/img/elements-brand-1.jpg)
+
+### Colors
+
+#### Core Palette
+
+Consistent use of color enhances the strength of the MIT Technology Review
+identity. The core color palette consists of red, black, grey, and white. See examples and general uses below.
+
+![Example: Core color palette](/img/elements-brand-2.jpg)
+
+#### Extended Palette
+
+The extended palette anticipates the need for a fuller range of color that works in conjunction with, and potentially in the place of, the core palette. See examples and general uses below.
+
+![Example: Extended color palette](/img/elements-brand-3.jpg)
+
+
+## Grid
+
+The width of the MIT Technology Review website is 1020px. Most of the layouts are based on a five column grid. Each column is 188px wide with a 20px gutter between each.
+
+![Example: Grid](/img/elements-grid-1.jpg)
+
+## Icons
+
+Icons are used minimally on the website. We have several custom icons as seen in the [tertiary button](/elements#buttons) and  [share widget](/components#share-widgets), but we are moving towards using the icon library from [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
